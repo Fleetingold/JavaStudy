@@ -3,10 +3,6 @@ package com.mystudy.icbc.response;
 import com.mystudy.icbc.request.RequestXMLElement;
 
 public abstract class ResponseV1 {
-	public String returnCode;
-	
-	public String returnMsg;
-	
 	@RequestXMLElement(name = "TransCode", parent = "pub")
 	protected String transCode;
 	
@@ -28,22 +24,10 @@ public abstract class ResponseV1 {
 	@RequestXMLElement(name = "fSeqno", parent = "pub")
 	protected String fSeqno;
 	
-	public String getReturnCode() {
-		return returnCode;
-	}
-
-	public void setReturnCode(String returnCode) {
-		this.returnCode = returnCode;
-	}
-
-	public String getReturnMsg() {
-		return returnMsg;
-	}
-
-	public void setReturnMsg(String returnMsg) {
-		this.returnMsg = returnMsg;
-	}
-
+	public String returnCode;
+	
+	public String returnMsg;
+	
 	public String getTransCode() {
 		return transCode;
 	}
@@ -100,5 +84,21 @@ public abstract class ResponseV1 {
 		this.fSeqno = fSeqno;
 	}
 
+	public String getReturnCode() {
+		return returnCode;
+	}
+
+	public void setReturnCode(String returnCode) {
+		this.returnCode = returnCode;
+	}
+
+	public String getReturnMsg() {
+		return returnMsg;
+	}
+
+	public void setReturnMsg(String returnMsg) {
+		this.returnMsg = returnMsg;
+	}
+	
 	abstract boolean isSuccess();
 }

@@ -1,0 +1,34 @@
+<?xml  version="1.0" encoding="GBK" ?>
+<CMS>
+	<eb>
+		<pub>
+			<TransCode>QACCBAL</TransCode>
+			<CIS>71390256-5AAAAA</CIS>
+			<BankCode>102</BankCode>
+			<ID>hyhl.y.1311</ID>
+			<TranDate>20201021</TranDate>
+			<TranTime>171054074</TranTime>
+			<fSeqno>QACCBAL20201021171054043</fSeqno>
+			<RetCode>0</RetCode>
+			<RetMsg></RetMsg>
+		</pub>
+		<out>
+			<rd>
+				<iSeqno>1</iSeqno>
+				<AccNo>1311045029200040348</AccNo>
+				<CurrType>001</CurrType>
+				<CashExf>0</CashExf>
+				<AcctProperty>004</AcctProperty>
+				<AccBalance>152219530</AccBalance>
+				<Balance>104668659</Balance>
+				<UsableBalance>104668659</UsableBalance>
+				<FrzAmt>0</FrzAmt>
+				<QueryTime>20201021171000000056</QueryTime>
+				<iRetCode>0</iRetCode>
+				<iRetMsg></iRetMsg>
+				<RepReserved3></RepReserved3>
+				<RepReserved4></RepReserved4>
+			</rd>
+		</out>	
+	</eb>
+</CMS>
