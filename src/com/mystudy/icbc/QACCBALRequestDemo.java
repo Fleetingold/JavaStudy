@@ -78,17 +78,17 @@ public class QACCBALRequestDemo {
         request.setBizContent(bizContent);
         System.out.println(request.getServiceUrl());
         
-        String repcontent = RequestUtil.sendPost(BASE_URL, request.getParam());
+        String repcontent = RequestUtil.SendPost(BASE_URL, request.getParam());
 		try {
-	           repcontent = repcontent.substring(8);
-	           System.out.println("银企互联返回:\r\n"+repcontent);
-	           byte[] decodeResult = Base64Util.getbyteFromBASE64(repcontent);
-	           repcontent = new String(decodeResult);
-	           System.out.println("base64解码如下:\r\n" + repcontent);
-	       } catch (Exception e) {
-	           e.printStackTrace();
-	           System.out.println("银企互联返回base64报错:" + e.toString());
-	       }
+            repcontent = repcontent.substring(8);
+            System.out.println("银企互联返回:\r\n"+repcontent);
+            byte[] decodeResult = Base64Util.getbyteFromBASE64(repcontent);
+            repcontent = new String(decodeResult);
+            System.out.println("base64解码如下:\r\n" + repcontent);
+        } catch (Exception e) {
+        	e.printStackTrace();
+        	System.out.println("银企互联返回base64报错:" + e.toString());
+        }
 	}
 
 }

@@ -28,6 +28,8 @@ public class ConstRequest {
 	
 	public static final String VERSIONNEW = "0.0.1.0";
 	
+	public static final String BASE_URL = "http://127.0.0.1:448/servlet/ICBCCMPAPIReqServlet";
+	
 	public static String getTranDate() {
         return getDateByPattern(PT_yyyyMMdd);
 	}

@@ -8,7 +8,7 @@ import java.net.URL;
 import java.net.URLConnection;
 
 public class RequestUtil {
-	public static String sendPost(String url, String param) {
+	public static String SendPost(String url, String param) {
 		PrintWriter out = null;
 		BufferedReader in = null;
 		String result = "";
@@ -55,5 +55,22 @@ public class RequestUtil {
 			}
 		}
 		return result;
+	}
+
+	public static void AssignToRequestBiz(RequestBizV1 bizContent, String sSeqno, String sTransCode) {
+		//（1）交易代码
+        bizContent.setTransCode(sTransCode);
+        //（2）集团CIS号，客户注册时的归属编码
+        bizContent.setCis(ConstRequest.CIS);
+        //（3）归属银行编号，客户注册时的归属单位 102
+        bizContent.setBankCode(ConstRequest.BANKCODE);
+        //（4）证书ID，无证书客户可上送空
+        bizContent.setID(ConstRequest.CERTID);
+        //（5）ERP系统产生的交易日期，格式是yyyyMMdd
+        bizContent.setTranDate(ConstRequest.getTranDate());
+        //（6）ERP系统产生的交易时间，格式如HHmmssSSS，精确到毫秒
+        bizContent.setTranTime(ConstRequest.getTranTime());
+        //（7）ERP系统产生的指令包序列号，一个集团永远不能重复。客户可选择上送或由系统自动生成
+        bizContent.setfSeqno(sSeqno);
 	}
 }

@@ -10,7 +10,7 @@ public class QHISDRequestV1 extends RequestV1 {
 		this.bizContent = bizContent;
 	}
 	
-	public class QHISDRequestRdV1 {
+	public static class QHISDRequestRdV1 {
 		@RequestXMLElement(name = "AccNo")
 		private String accNo;
 		@RequestXMLElement(name = "BeginDate")

@@ -53,6 +53,19 @@ public class RequestParamUtil {
 								result.append("</rd>");
 							}
 						}
+					} else if(annotation.name().equals("directin")) {
+						Object directin = field.get(reqDataModel);
+						
+						Field[] directinFields = directin.getClass().getDeclaredFields();
+						for(Field directinField : directinFields) {
+							if(directinField.isAnnotationPresent(RequestXMLElement.class)) {
+								directinField.setAccessible(true);
+								RequestXMLElement directinAnnotation = directinField.getDeclaredAnnotation(RequestXMLElement.class);
+								result.append("<" + directinAnnotation.name() + ">");
+								result.append(directinField.get(directin));
+								result.append("</" + directinAnnotation.name() + ">");
+							}
+						}
 					} else {
 						result.append("<" + annotation.name() + ">");
 						result.append(field.get(reqDataModel));
@@ -82,5 +95,19 @@ public class RequestParamUtil {
 		}
 		
 		return String.join("&", strs);
+	}
+	
+	public static RequestParam GetRequestParam(String sSeqno, String sTransCode, String sVersion) {
+		RequestParam requestParam = new RequestParam();
+		requestParam.setUserID(ConstRequest.CERTID);
+		requestParam.setPackageID(sSeqno);
+		requestParam.setSendTime(ConstRequest.getDateTime());
+		requestParam.setVersion(sVersion);
+		requestParam.setTransCode(sTransCode);
+		requestParam.setBankCode(ConstRequest.BANKCODE);
+		requestParam.setID(ConstRequest.CERTID);
+		requestParam.setGroupCIS(ConstRequest.CIS);
+		
+		return requestParam;
 	}
 }
