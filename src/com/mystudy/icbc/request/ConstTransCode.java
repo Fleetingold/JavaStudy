@@ -15,4 +15,9 @@ public class ConstTransCode {
 	 * 	对账单
 	 */
 	public static final String QUERY_QBILL = "QBILL";
+	
+	/**
+	 * 	批量电子回单指令查询
+	 */
+	public static final String QUERY_QEBILL = "QEBILL";
 }
