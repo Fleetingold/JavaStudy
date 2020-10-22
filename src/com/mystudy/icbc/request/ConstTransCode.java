@@ -20,4 +20,9 @@ public class ConstTransCode {
 	 * 	批量电子回单指令查询
 	 */
 	public static final String QUERY_QEBILL = "QEBILL";
+	
+	/**
+	 * 	电子回单批量查询
+	 */
+	public static final String QUERY_BATEBILL = "BATEBILL";
 }
