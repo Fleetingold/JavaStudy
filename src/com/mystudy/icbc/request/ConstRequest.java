@@ -30,6 +30,8 @@ public class ConstRequest {
 	
 	public static final String BASE_URL = "http://127.0.0.1:448/servlet/ICBCCMPAPIReqServlet";
 	
+	public static final String SIGN_URL = "http://127.0.0.1:449";
+	
 	public static String getTranDate() {
         return getDateByPattern(PT_yyyyMMdd);
 	}
