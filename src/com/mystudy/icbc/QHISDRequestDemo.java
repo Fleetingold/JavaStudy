@@ -70,19 +70,26 @@ public class QHISDRequestDemo {
 		
 		for(QHISDResponseV1.QHISDResponseV1Rd resRd : response.getRds()) {
 			System.out.println("------------------------------------");
-			//CreditAmount
-			System.out.println("CreditAmount:" + resRd.getCreditAmount());
-			System.out.println("RecipAccNo:" + resRd.getRecipAccNo());
-			System.out.println("RecipName:" + resRd.getRecipName());
-			System.out.println("Summary:" + resRd.getSummary());
-			System.out.println("Time:" + resRd.getTime());
-			System.out.println("Drcrf:" + resRd.getDrcrf());
-			//RecipBkName1
-			System.out.println("RecipBkName1:" + resRd.getRecipBkName1());
-			//TInfoNew
-			System.out.println("TInfoNew:" + resRd.getTInfoNew());
-			//ReceiptInfo
-			System.out.println("ReceiptInfo:" + resRd.getReceiptInfo());
+			//Toutfo 电子回单唯一标识
+			System.out.println("Toutfo(电子回单唯一标识):" + resRd.getToutfo());
+			
+			//Drcrf 借贷标志	数据字典：1-借；2-贷；
+			System.out.println("Drcrf(借贷标志):" + resRd.getDrcrf());
+			//DebitAmount  借方发生额
+			System.out.println("DebitAmount(借方发生额):" + resRd.getDebitAmount());
+			//CreditAmount 贷方发生额
+			System.out.println("CreditAmount(贷方发生额):" + resRd.getCreditAmount());
+			//RecipBkNo1 对方行号
+			System.out.println("RecipBkNo1(对方行号):" + resRd.getRecipBkNo1());
+			//RecipBkName1 对方行名
+			System.out.println("RecipBkName1(对方行名):" + resRd.getRecipBkName1());
+			System.out.println("RecipAccNo(对方账号):" + resRd.getRecipAccNo());
+			System.out.println("RecipName(对方户名):" + resRd.getRecipName());
+			//ReceiptInfo 对方信息
+			System.out.println("ReceiptInfo(对方信息):" + resRd.getReceiptInfo());
+			
+			System.out.println("Summary(摘要):" + resRd.getSummary());
+			System.out.println("Time(时间戳):" + resRd.getTime());
 		}
 	}
 

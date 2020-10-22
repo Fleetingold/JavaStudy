@@ -4,17 +4,53 @@ import java.util.ArrayList;
 
 public class QHISDResponseV1 extends ResponseV1 {
 
+	/**
+	 * 	账号
+	 */
 	private String accNo;
+	/**
+	 * 	户名
+	 */
 	private String accName;
+	/**
+	 * 	币种
+	 */
 	private String currType;
+	/**
+	 * 	起始日期
+	 */
 	private String beginDate;
+	/**
+	 * 	截止日期
+	 */
 	private String endDate;
+	/**
+	 * 	发生额下限
+	 */
 	private String minAmt;
+	/**
+	 * 	发生额上限
+	 */
 	private String maxAmt;
+	/**
+	 * 	行别
+	 */
 	private String bankType;
+	/**
+	 * 	查询下页
+	 */
 	private String nextTag;
+	/**
+	 * 	交易条数
+	 */
 	private String totalNum;
+	/**
+	 * 	借据编号
+	 */
 	private String dueBillNo;
+	/**
+	 * 	账号序号
+	 */
 	private String acctSeq;
 	
 	private ArrayList<QHISDResponseV1Rd> rds = new ArrayList<QHISDResponseV1.QHISDResponseV1Rd>();
@@ -134,53 +170,197 @@ public class QHISDResponseV1 extends ResponseV1 {
 	}
 
 	public static class QHISDResponseV1Rd {
+		/**
+		 * 	借贷标志
+		 */
 		private String drcrf;
+		/**
+		 * 	凭证号
+		 */
 		private String vouhNo;
+		/**
+		 * 	借方发生额
+		 */
 		private String debitAmount;
+		/**
+		 * 	贷方发生额
+		 */
 		private String creditAmount;
+		/**
+		 * 	余额
+		 */
 		private String balance;
+		/**
+		 * 	对方行号
+		 */
 		private String recipBkNo;
+		/**
+		 * 	对方行名
+		 */
 		private String recipBkName;
+		/**
+		 * 	对方账号
+		 */
 		private String recipAccNo;
+		/**
+		 * 	对方户名
+		 */
 		private String recipName;
+		/**
+		 * 	摘要
+		 */
 		private String summary;
+		/**
+		 * 	用途
+		 */
 		private String useCN;
+		/**
+		 * 	附言
+		 */
 		private String postScript;
+		/**
+		 * 	业务代码
+		 */
 		private String busCode;
+		/**
+		 * 	交易日期
+		 */
 		private String date;
+		/**
+		 *	时间戳
+		 */
 		private String time;
+		/**
+		 * 	业务编号
+		 */
 		private String ref;
+		/**
+		 * 	相关业务编号
+		 */
 		private String oref;
+		/**
+		 * 	英文备注
+		 */
 		private String enSummary;
+		/**
+		 * 	业务种类
+		 */
 		private String busType;
+		/**
+		 * 	凭证种类
+		 */
 		private String vouhType;
+		/**
+		 * 	附加信息
+		 */
 		private String addInfo;
+		/**
+		 * 	电子回单唯一标识
+		 */
 		private String toutfo;
+		/**
+		 * 	银行交易流水号
+		 */
 		private String onlySequence;
+		/**
+		 * 	财务公司二级账户户名
+		 */
 		private String agentAcctName;
+		/**
+		 * 	财务公司二级账户账号
+		 */
 		private String agentAcctNo;
+		/**
+		 * 	冲正标志
+		 */
 		private String upDtranf;
+		/**
+		 * 	起息日
+		 */
 		private String valueDate;
+		/**
+		 * 	工行交易代码
+		 */
 		private String trxCode;
+		/**
+		 * 	业务编号1
+		 */
 		private String ref1;
+		/**
+		 * 	相关业务编号1
+		 */
 		private String oref1;
+		/**
+		 * 	交易类型
+		 */
 		private String CASHF;
+		/**
+		 * 	入账日期
+		 */
 		private String busiDate;
+		/**
+		 * 	入账时间
+		 */
 		private String busiTime;
+		/**
+		 * 	交易时间
+		 */
 		private String tradeTime;
+		/**
+		 * 	交易场所
+		 */
 		private String tradeLocation;
+		/**
+		 * 	账号序号
+		 */
 		private String subAcctSeq;
+		/**
+		 * 	币种
+		 */
 		private String THCurrency;
+		/**
+		 * 	对方行名（以此为准）
+		 */
 		private String recipBkName1;
+		/**
+		 * 	对方行号（以此为准）
+		 */
 		private String recipBkNo1;
+		/**
+		 * 	和上面的toutfo[电子回单唯一标识]一样
+		 */
 		private String TInfoNew;
+		/**
+		 * 
+		 */
 		private String refundMsg;
+		/**
+		 * 
+		 */
 		private String busTypNo;
+		/**
+		 * 	类比recip*[对方*],对方信息
+		 */
 		private String receiptInfo;
+		/**
+		 * 
+		 */
 		private String telNo;
+		/**
+		 * 
+		 */
 		private String mdCardNo;
+		/**
+		 * 	类比trxCode[工行交易代码],工行交易金额
+		 */
 		private String trxAmt;
+		/**
+		 * 	类比trxCode[工行交易代码],工行交易币名
+		 */
 		private String trxCurr;
+		/**
+		 * 	币种
+		 */
 		private String currType;
 
 		public String getDrcrf() {

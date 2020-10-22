@@ -3,29 +3,56 @@ package com.mystudy.icbc.response;
 import com.mystudy.icbc.request.RequestXMLElement;
 
 public abstract class ResponseV1 {
+	/**
+	 * 	交易代码
+	 */
 	@RequestXMLElement(name = "TransCode", parent = "pub")
 	protected String transCode;
 	
+	/**
+	 * 	集团CIS号
+	 */
 	@RequestXMLElement(name = "CIS", parent = "pub")
 	protected String cis;
 	
+	/**
+	 * 	归属银行号码
+	 */
 	@RequestXMLElement(name = "BankCode", parent = "pub")
 	protected String bankCode;
 	
+	/**
+	 * 	证书ID
+	 */
 	@RequestXMLElement(name = "ID", parent = "pub")
 	protected String ID;
 	
+	/**
+	 * 	交易日期
+	 */
 	@RequestXMLElement(name = "TranDate", parent = "pub")
 	protected String tranDate;
 	
+	/**
+	 * 	交易时间
+	 */
 	@RequestXMLElement(name = "TranTime", parent = "pub")
 	protected String tranTime;
 	
+	/**
+	 * 	指令包序列号
+	 */
 	@RequestXMLElement(name = "fSeqno", parent = "pub")
 	protected String fSeqno;
 	
+	/**
+	 * 	交易返回码
+	 */
 	public String returnCode;
 	
+	/**
+	 * 	交易返回描述
+	 */
 	public String returnMsg;
 	
 	public String getTransCode() {
