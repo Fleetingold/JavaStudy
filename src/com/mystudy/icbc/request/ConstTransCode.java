@@ -25,4 +25,9 @@ public class ConstTransCode {
 	 * 	电子回单批量查询
 	 */
 	public static final String QUERY_BATEBILL = "BATEBILL";
+	
+	/**
+	 * 	网点信息下载
+	 */
+	public static final String QUERY_NETINF = "NETINF";
 }

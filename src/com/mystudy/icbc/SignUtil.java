@@ -63,56 +63,64 @@ public class SignUtil {
        System.out.println("签名:" + signContent);
 	}
 
-	public static String Sign(String url, String param) {
-		PrintWriter out = null;
-		BufferedReader in = null;
+	public static String Sign(String url, String xmlContent) {
 		String signContent = "";
-		try {
-			URL realUrl = new URL(url);
-			// 打开和URL之间的连接
-			URLConnection conn = realUrl.openConnection();
-			
-			// 设置通用的请求属性
-			conn.setRequestProperty("Content-Type", "INFOSEC_SIGN/1.0");
-			conn.setRequestProperty("Content-Length", Integer.toString(param.length()));
-			// 发送POST请求必须设置如下两行
-			conn.setDoOutput(true);
-			conn.setDoInput(true);
-			// 获取URLConnection对象对应的输出流
-			out = new PrintWriter(conn.getOutputStream());
-			// 发送请求参数
-			out.print(param);
-			// flush输出流的缓冲
-			out.flush();
-			// 定义BufferedReader输入流来读取URL的响应
-			in = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
-			String line;
-			while ((line = in.readLine()) != null) {
-				signContent += line;
-			}
-		} catch (Exception e) {
-			System.out.println("发送 POST 请求出现异常！" + e);
-			e.printStackTrace();
-		}
-		// 使用finally块来关闭输出流、输入流
-		finally {
-			try {
-				if (out != null) {
-					out.close();
-				}
-				if (in != null) {
-					in.close();
-				}
-			} catch (IOException ex) {
-				ex.printStackTrace();
-			}
-		}
 		
-		signContent.replaceAll("\n", "");
-		if(signContent.length() > 6) {
-			int beginSign = signContent.indexOf("<sign>") + 6;
-			int endSign = signContent.indexOf("</sign>");
-			signContent = signContent.substring(beginSign, endSign);
+		if (xmlContent.indexOf("<SignTime>") > -1) { 
+			PrintWriter out = null;
+			BufferedReader in = null;
+			try {
+				URL realUrl = new URL(url);
+				// 打开和URL之间的连接
+				URLConnection conn = realUrl.openConnection();
+				
+				// 设置通用的请求属性
+				conn.setRequestProperty("Content-Type", "INFOSEC_SIGN/1.0");
+				conn.setRequestProperty("Content-Length", Integer.toString(xmlContent.length()));
+				// 发送POST请求必须设置如下两行
+				conn.setDoOutput(true);
+				conn.setDoInput(true);
+				// 获取URLConnection对象对应的输出流
+				out = new PrintWriter(conn.getOutputStream());
+				// 发送请求参数
+				out.print(xmlContent);
+				// flush输出流的缓冲
+				out.flush();
+				// 定义BufferedReader输入流来读取URL的响应
+				in = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
+				String line;
+				while ((line = in.readLine()) != null) {
+					signContent += line;
+				}
+			} catch (Exception e) {
+				System.out.println("发送 POST 请求出现异常！" + e);
+				e.printStackTrace();
+			}
+			// 使用finally块来关闭输出流、输入流
+			finally {
+				try {
+					if (out != null) {
+						out.close();
+					}
+					if (in != null) {
+						in.close();
+					}
+				} catch (IOException ex) {
+					ex.printStackTrace();
+				}
+			}
+			
+			signContent.replaceAll("\n", "");
+			if(signContent.length() > 6) {
+				int beginSign = signContent.indexOf("<sign>") + 6;
+				int endSign = signContent.indexOf("</sign>");
+				signContent = signContent.substring(beginSign, endSign);
+			}
+			System.out.println("加密前:" + xmlContent);
+			System.out.println("加密后:" + signContent);
+		} else {
+			// 如果不需要签名直接放明文
+			signContent = xmlContent;
 		}
 		return signContent;
 	}

@@ -48,7 +48,12 @@ public class BATEBILLRequestDemo {
         bizContent.setRd(rds);
 		
 		try {
-			requestParam.setReqData(RequestParamUtil.GetReqData(bizContent));
+			String reqData = RequestParamUtil.GetReqData(bizContent);
+			
+			//进行签名操作
+			String signReqData = SignUtil.Sign(ConstRequest.SIGN_URL, reqData);
+			
+			requestParam.setReqData(signReqData);
 			
 			String sParam = RequestParamUtil.GetParam(requestParam);
 			request.setServiceUrl(ConstRequest.BASE_URL + "?" + sParam);
