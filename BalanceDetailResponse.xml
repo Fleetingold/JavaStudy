@@ -1,4 +1,4 @@
-﻿<?xml  version="1.0" encoding="GBK" ?>
+<?xml  version="1.0" encoding="GBK" ?>
 <CMS>
 	<eb>
 		<pub>
@@ -84,7 +84,7 @@
 				<RecipBkNo></RecipBkNo>
 				<RecipBkName>00000</RecipBkName>
 				<RecipAccNo>6222021311011164522</RecipAccNo>
-				<RecipName>尹娟�?/RecipName>
+				<RecipName>尹娟</RecipName>
 				<Summary>网转</Summary>
 				<UseCN></UseCN>
 				<PostScript></PostScript>
@@ -118,7 +118,7 @@
 				<TInfoNew>1311|0600|20295|000002</TInfoNew>
 				<RefundMsg></RefundMsg>
 				<BusTypNo>000</BusTypNo>
-				<ReceiptInfo>&lt;汇划种类&gt;汇兑&lt;/汇划种类&gt;&lt;客户附言&gt;&lt;/客户附言&gt;&lt;用�?gt;&lt;/用�?gt;</ReceiptInfo>
+				<ReceiptInfo>&lt;汇划种类&gt;汇兑&lt;/汇划种类&gt;&lt;客户附言&gt;&lt;/客户附言&gt;&lt;用??gt;&lt;/用??gt;</ReceiptInfo>
 				<TelNo>00059</TelNo>
 				<MDCARDNO></MDCARDNO>
 				<TrxAmt></TrxAmt>
@@ -134,7 +134,7 @@
 				<RecipBkNo></RecipBkNo>
 				<RecipBkName>00000</RecipBkName>
 				<RecipAccNo></RecipAccNo>
-				<RecipName>庞恒�?/RecipName>
+				<RecipName>庞恒</RecipName>
 				<Summary>货款</Summary>
 				<UseCN></UseCN>
 				<PostScript></PostScript>
@@ -168,7 +168,7 @@
 				<TInfoNew>1311|2623|20295|000003</TInfoNew>
 				<RefundMsg></RefundMsg>
 				<BusTypNo>001</BusTypNo>
-				<ReceiptInfo>&lt;缴款�?gt;庞恒�?                                                     &lt;/缴款�?gt;&lt;券别&gt;100.00&lt;/券别&gt;&lt;张数&gt;115&lt;/张数&gt;&lt;券别&gt;20.00&lt;/券别&gt;&lt;张数&gt;2&lt;/张数&gt;&lt;券别&gt;1.00&lt;/券别&gt;&lt;张数&gt;2&lt;/张数&gt;&lt;券别&gt;0.10&lt;/券别&gt;&lt;张数&gt;1&lt;/张数&gt;&lt;券别&gt;0.01&lt;/券别&gt;&lt;张数&gt;2&lt;/张数&gt;</ReceiptInfo>
+				<ReceiptInfo>&lt;缴款??gt;庞恒??                                                     &lt;/缴款??gt;&lt;券别&gt;100.00&lt;/券别&gt;&lt;张数&gt;115&lt;/张数&gt;&lt;券别&gt;20.00&lt;/券别&gt;&lt;张数&gt;2&lt;/张数&gt;&lt;券别&gt;1.00&lt;/券别&gt;&lt;张数&gt;2&lt;/张数&gt;&lt;券别&gt;0.10&lt;/券别&gt;&lt;张数&gt;1&lt;/张数&gt;&lt;券别&gt;0.01&lt;/券别&gt;&lt;张数&gt;2&lt;/张数&gt;</ReceiptInfo>
 				<TelNo>02635</TelNo>
 				<MDCARDNO></MDCARDNO>
 				<TrxAmt></TrxAmt>
@@ -184,7 +184,7 @@
 				<RecipBkNo></RecipBkNo>
 				<RecipBkName>00000</RecipBkName>
 				<RecipAccNo>6222021311011164522</RecipAccNo>
-				<RecipName>尹娟�?/RecipName>
+				<RecipName>尹娟</RecipName>
 				<Summary>网转</Summary>
 				<UseCN></UseCN>
 				<PostScript></PostScript>
@@ -218,7 +218,7 @@
 				<TInfoNew>1311|0600|20295|000004</TInfoNew>
 				<RefundMsg></RefundMsg>
 				<BusTypNo>000</BusTypNo>
-				<ReceiptInfo>&lt;汇划种类&gt;汇兑&lt;/汇划种类&gt;&lt;客户附言&gt;&lt;/客户附言&gt;&lt;用�?gt;&lt;/用�?gt;</ReceiptInfo>
+				<ReceiptInfo>&lt;汇划种类&gt;汇兑&lt;/汇划种类&gt;&lt;客户附言&gt;&lt;/客户附言&gt;&lt;用??gt;&lt;/用??gt;</ReceiptInfo>
 				<TelNo>00059</TelNo>
 				<MDCARDNO></MDCARDNO>
 				<TrxAmt></TrxAmt>
@@ -268,7 +268,7 @@
 				<TInfoNew>1311|0600|20295|000005</TInfoNew>
 				<RefundMsg></RefundMsg>
 				<BusTypNo>000</BusTypNo>
-				<ReceiptInfo>&lt;汇划种类&gt;汇兑&lt;/汇划种类&gt;&lt;客户附言&gt;&lt;/客户附言&gt;&lt;用�?gt;&lt;/用�?gt;</ReceiptInfo>
+				<ReceiptInfo>&lt;汇划种类&gt;汇兑&lt;/汇划种类&gt;&lt;客户附言&gt;&lt;/客户附言&gt;&lt;用??gt;&lt;/用??gt;</ReceiptInfo>
 				<TelNo>00059</TelNo>
 				<MDCARDNO></MDCARDNO>
 				<TrxAmt></TrxAmt>
@@ -284,7 +284,7 @@
 				<RecipBkNo></RecipBkNo>
 				<RecipBkName>00000</RecipBkName>
 				<RecipAccNo>6217001730008015393</RecipAccNo>
-				<RecipName>张立�?/RecipName>
+				<RecipName>张立</RecipName>
 				<Summary>跨行转出</Summary>
 				<UseCN></UseCN>
 				<PostScript></PostScript>
@@ -368,7 +368,7 @@
 				<TInfoNew>1311|0600|20295|000007</TInfoNew>
 				<RefundMsg></RefundMsg>
 				<BusTypNo>000</BusTypNo>
-				<ReceiptInfo>&lt;汇划种类&gt;汇兑&lt;/汇划种类&gt;&lt;客户附言&gt;&lt;/客户附言&gt;&lt;用�?gt;&lt;/用�?gt;</ReceiptInfo>
+				<ReceiptInfo>&lt;汇划种类&gt;汇兑&lt;/汇划种类&gt;&lt;客户附言&gt;&lt;/客户附言&gt;&lt;用??gt;&lt;/用??gt;</ReceiptInfo>
 				<TelNo>00059</TelNo>
 				<MDCARDNO></MDCARDNO>
 				<TrxAmt></TrxAmt>
@@ -384,7 +384,7 @@
 				<RecipBkNo></RecipBkNo>
 				<RecipBkName>00000</RecipBkName>
 				<RecipAccNo>6217886300001209953</RecipAccNo>
-				<RecipName>樊少�?/RecipName>
+				<RecipName>樊少</RecipName>
 				<Summary>跨行</Summary>
 				<UseCN></UseCN>
 				<PostScript></PostScript>
@@ -434,7 +434,7 @@
 				<RecipBkNo></RecipBkNo>
 				<RecipBkName>00000</RecipBkName>
 				<RecipAccNo>6222021311011164522</RecipAccNo>
-				<RecipName>尹娟�?/RecipName>
+				<RecipName>尹娟</RecipName>
 				<Summary>网转</Summary>
 				<UseCN></UseCN>
 				<PostScript></PostScript>
@@ -468,7 +468,7 @@
 				<TInfoNew>1311|0600|20295|000009</TInfoNew>
 				<RefundMsg></RefundMsg>
 				<BusTypNo>000</BusTypNo>
-				<ReceiptInfo>&lt;汇划种类&gt;汇兑&lt;/汇划种类&gt;&lt;客户附言&gt;&lt;/客户附言&gt;&lt;用�?gt;&lt;/用�?gt;</ReceiptInfo>
+				<ReceiptInfo>&lt;汇划种类&gt;汇兑&lt;/汇划种类&gt;&lt;客户附言&gt;&lt;/客户附言&gt;&lt;用??gt;&lt;/用??gt;</ReceiptInfo>
 				<TelNo>00059</TelNo>
 				<MDCARDNO></MDCARDNO>
 				<TrxAmt></TrxAmt>
@@ -518,7 +518,7 @@
 				<TInfoNew>1311|2623|20295|000010</TInfoNew>
 				<RefundMsg></RefundMsg>
 				<BusTypNo>001</BusTypNo>
-				<ReceiptInfo>&lt;缴款�?gt;马莉                                                        &lt;/缴款�?gt;&lt;券别&gt;100.00&lt;/券别&gt;&lt;张数&gt;1135&lt;/张数&gt;</ReceiptInfo>
+				<ReceiptInfo>&lt;缴款??gt;马莉                                                        &lt;/缴款??gt;&lt;券别&gt;100.00&lt;/券别&gt;&lt;张数&gt;1135&lt;/张数&gt;</ReceiptInfo>
 				<TelNo>02635</TelNo>
 				<MDCARDNO></MDCARDNO>
 				<TrxAmt></TrxAmt>
@@ -534,7 +534,7 @@
 				<RecipBkNo></RecipBkNo>
 				<RecipBkName>00000</RecipBkName>
 				<RecipAccNo>6228482298799972870</RecipAccNo>
-				<RecipName>鹿晓�?/RecipName>
+				<RecipName>鹿晓</RecipName>
 				<Summary>跨行</Summary>
 				<UseCN></UseCN>
 				<PostScript></PostScript>
@@ -713,7 +713,7 @@
 				<TradeLocation></TradeLocation>
 				<SubAcctSeq></SubAcctSeq>
 				<THCurrency></THCurrency>
-				<RecipBkName1>安徽省农村信用联社资金清算中�?/RecipBkName1>
+				<RecipBkName1>安徽省农村信用联社资金清算中</RecipBkName1>
 				<RecipBkNo1>402361018886</RecipBkNo1>
 				<TInfoNew>1311|0600|20295|000014</TInfoNew>
 				<RefundMsg></RefundMsg>
@@ -734,7 +734,7 @@
 				<RecipBkNo></RecipBkNo>
 				<RecipBkName>00000</RecipBkName>
 				<RecipAccNo>6228452298012591172</RecipAccNo>
-				<RecipName>孙舒�?/RecipName>
+				<RecipName>孙舒</RecipName>
 				<Summary>跨行</Summary>
 				<UseCN></UseCN>
 				<PostScript></PostScript>
@@ -784,7 +784,7 @@
 				<RecipBkNo></RecipBkNo>
 				<RecipBkName>00000</RecipBkName>
 				<RecipAccNo>6215581311006181883</RecipAccNo>
-				<RecipName>史田�?/RecipName>
+				<RecipName>史田</RecipName>
 				<Summary>网转</Summary>
 				<UseCN></UseCN>
 				<PostScript></PostScript>
@@ -818,7 +818,7 @@
 				<TInfoNew>1311|0600|20295|000016</TInfoNew>
 				<RefundMsg></RefundMsg>
 				<BusTypNo>000</BusTypNo>
-				<ReceiptInfo>&lt;汇划种类&gt;汇兑&lt;/汇划种类&gt;&lt;客户附言&gt;&lt;/客户附言&gt;&lt;用�?gt;&lt;/用�?gt;</ReceiptInfo>
+				<ReceiptInfo>&lt;汇划种类&gt;汇兑&lt;/汇划种类&gt;&lt;客户附言&gt;&lt;/客户附言&gt;&lt;用??gt;&lt;/用??gt;</ReceiptInfo>
 				<TelNo>00059</TelNo>
 				<MDCARDNO></MDCARDNO>
 				<TrxAmt></TrxAmt>
