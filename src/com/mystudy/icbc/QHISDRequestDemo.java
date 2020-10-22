@@ -24,9 +24,9 @@ public class QHISDRequestDemo {
 		//rdÇø
 		QHISDRequestV1.QHISDRequestRdV1 rd = new QHISDRequestV1.QHISDRequestRdV1();
 		
-		rd.setAccNo(ConstRequest.ACCNO40348);
-		rd.setBeginDate(ConstRequest.getTranDate());
-		rd.setEndDate(ConstRequest.getTranDate());
+		rd.setAccNo(ConstRequest.ACCNO2486);
+		rd.setBeginDate("20201021");
+		rd.setEndDate("20201021");
 		rd.setMinAmt("0");
 		rd.setMaxAmt("99999999999");
 		rd.setBankType("");
