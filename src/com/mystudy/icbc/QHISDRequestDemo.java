@@ -25,7 +25,7 @@ public class QHISDRequestDemo {
 		//rdÇø
 		QHISDRequestV1.QHISDRequestRdV1 rd = new QHISDRequestV1.QHISDRequestRdV1();
 		
-		rd.setAccNo(ConstRequest.ACCNO2528);
+		rd.setAccNo(ConstRequest.ACCNO2486);
 		rd.setBeginDate("20201021");
 		rd.setEndDate("20201021");
 		rd.setMinAmt("0");

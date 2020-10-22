@@ -255,7 +255,7 @@ public class QHISDResponseV1 extends ResponseV1 {
 		 */
 		private String addInfo;
 		/**
-		 * 	电子回单唯一标识
+		 * 	电子回单唯一标识 格式:地区号|网点号|柜员号|主机交易流水号
 		 */
 		private String toutfo;
 		/**

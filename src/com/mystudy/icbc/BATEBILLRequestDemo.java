@@ -28,21 +28,24 @@ public class BATEBILLRequestDemo {
         ArrayList<BATEBILLRequestV1.BATEBILLRequestRdV1> rds = new ArrayList<BATEBILLRequestV1.BATEBILLRequestRdV1>();
         BATEBILLRequestV1.BATEBILLRequestRdV1 rd = new BATEBILLRequestV1.BATEBILLRequestRdV1();
         
+        //QPD查询当日明细接口(RepReserved3)和QHISD高级明细查询接口(Toutfo)
+        //格式:地区号|网点号|柜员号|主机交易流水号
+        //例如:1311|0600|20295|000094
         rd.setiSeqno("1");
         //地区号 必输项 - 1311安徽阜阳
         rd.setAreaCode("1311");
-        //网点号 必输项?
-        rd.setNetCode("0450");
+        //网点号 必输项
+        rd.setNetCode("0600");
         //交易日期 必输项
-        rd.setTranDate(ConstRequest.getTranDate());
+        rd.setTranDate("20201021");
         rd.setAccNo(ConstRequest.ACCNO2486);
-        //序号 必输项?
-        rd.setTranSerial("123456789");
+        //序号 必输项
+        rd.setTranSerial("20295000001");
         rd.setAcctSeq("");
         rd.setCurrType(ConstRequest.CURRTYPE);
         rds.add(rd);
         
-        //需要签名?
+        //需要签名
         bizContent.setSignTime(ConstRequest.getDateTime());
         bizContent.setTotalNum(Integer.toString(rds.size()));
         bizContent.setRd(rds);
