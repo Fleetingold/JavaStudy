@@ -7,7 +7,6 @@ import com.mystudy.icbc.request.QHISDRequestV1;
 import com.mystudy.icbc.request.RequestParam;
 import com.mystudy.icbc.request.RequestParamUtil;
 import com.mystudy.icbc.request.RequestUtil;
-import com.mystudy.icbc.response.QACCBALResponseV1;
 import com.mystudy.icbc.response.QHISDResponseV1;
 
 public class QHISDRequestDemo {
@@ -26,9 +25,9 @@ public class QHISDRequestDemo {
 		//rd区
 		QHISDRequestV1.QHISDRequestRdV1 rd = new QHISDRequestV1.QHISDRequestRdV1();
 		
-		rd.setAccNo(ConstRequest.ACCNO2486);
-		rd.setBeginDate("20201021");
-		rd.setEndDate("20201021");
+		rd.setAccNo(ConstRequest.ACCNO2528);
+		rd.setBeginDate("20201022");
+		rd.setEndDate("20201022");
 		rd.setMinAmt("0");
 		rd.setMaxAmt("99999999999");
 		rd.setBankType("");
@@ -66,12 +65,15 @@ public class QHISDRequestDemo {
 		System.out.println("ReturnCode:" + response.getReturnCode());
 		System.out.println("ReturnMsg:" + response.getReturnMsg());
 		System.out.println("AccNo:" + response.getAccNo());
+		System.out.println("NextTag:" + response.getNextTag());
 		System.out.println("TotalNum:" + response.getTotalNum());
 		
 		for(QHISDResponseV1.QHISDResponseV1Rd resRd : response.getRds()) {
 			System.out.println("------------------------------------");
 			//Toutfo 电子回单唯一标识
 			System.out.println("Toutfo(电子回单唯一标识):" + resRd.getToutfo());
+			//OnlySequence 银行交易流水号
+			System.out.println("OnlySequence(银行交易流水号):" + resRd.getOnlySequence());
 			
 			//Drcrf 借贷标志	数据字典：1-借；2-贷；
 			System.out.println("Drcrf(借贷标志):" + resRd.getDrcrf());
@@ -79,6 +81,7 @@ public class QHISDRequestDemo {
 			System.out.println("DebitAmount(借方发生额):" + resRd.getDebitAmount());
 			//CreditAmount 贷方发生额
 			System.out.println("CreditAmount(贷方发生额):" + resRd.getCreditAmount());
+			System.out.println("Balance(当时余额):" + resRd.getBalance());
 			//RecipBkNo1 对方行号
 			System.out.println("RecipBkNo1(对方行号):" + resRd.getRecipBkNo1());
 			//RecipBkName1 对方行名
