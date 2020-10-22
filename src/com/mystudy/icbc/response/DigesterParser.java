@@ -299,4 +299,10 @@ public class DigesterParser {
         
         return response;
 	}
+
+	public static QHISDResponseV1 GetQHISDResponseFromXML(String responseXml) {
+		InputStream input1 = new ByteArrayInputStream(responseXml.getBytes());
+		
+		return ParseQHISDResponse(input1);
+	}
 }

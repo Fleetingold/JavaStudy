@@ -7,6 +7,8 @@ import com.mystudy.icbc.request.QHISDRequestV1;
 import com.mystudy.icbc.request.RequestParam;
 import com.mystudy.icbc.request.RequestParamUtil;
 import com.mystudy.icbc.request.RequestUtil;
+import com.mystudy.icbc.response.QACCBALResponseV1;
+import com.mystudy.icbc.response.QHISDResponseV1;
 
 public class QHISDRequestDemo {
 
@@ -52,17 +54,36 @@ public class QHISDRequestDemo {
 		request.setBizContent(bizContent);
         System.out.println(request.getServiceUrl());
         
-        String repcontent = RequestUtil.SendPost(ConstRequest.BASE_URL, request.getParam());
-		try {
-            repcontent = repcontent.substring(8);
-            System.out.println("银企互联返回:\r\n"+repcontent);
-            byte[] decodeResult = Base64Util.getbyteFromBASE64(repcontent);
-            repcontent = new String(decodeResult);
-            System.out.println("base64解码如下:\r\n" + repcontent);
-        } catch (Exception e) {
-        	e.printStackTrace();
-        	System.out.println("银企互联返回base64报错:" + e.toString());
-        }
+        //执行请求
+        QHISDResponseV1 response = RequestUtil.ExecuteQHISD(ConstRequest.BASE_URL, request.getParam());
+        
+        System.out.println("TransCode:" + response.getTransCode());
+		System.out.println("CIS:" + response.getCis());
+		System.out.println("BankCode:" + response.getBankCode());
+		System.out.println("ID:" + response.getID());
+		System.out.println("TranDate:" + response.getTranDate());
+		System.out.println("fSeqno:" + response.getfSeqno());
+		System.out.println("ReturnCode:" + response.getReturnCode());
+		System.out.println("ReturnMsg:" + response.getReturnMsg());
+		System.out.println("AccNo:" + response.getAccNo());
+		System.out.println("TotalNum:" + response.getTotalNum());
+		
+		for(QHISDResponseV1.QHISDResponseV1Rd resRd : response.getRds()) {
+			System.out.println("------------------------------------");
+			//CreditAmount
+			System.out.println("CreditAmount:" + resRd.getCreditAmount());
+			System.out.println("RecipAccNo:" + resRd.getRecipAccNo());
+			System.out.println("RecipName:" + resRd.getRecipName());
+			System.out.println("Summary:" + resRd.getSummary());
+			System.out.println("Time:" + resRd.getTime());
+			System.out.println("Drcrf:" + resRd.getDrcrf());
+			//RecipBkName1
+			System.out.println("RecipBkName1:" + resRd.getRecipBkName1());
+			//TInfoNew
+			System.out.println("TInfoNew:" + resRd.getTInfoNew());
+			//ReceiptInfo
+			System.out.println("ReceiptInfo:" + resRd.getReceiptInfo());
+		}
 	}
 
 }

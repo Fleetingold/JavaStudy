@@ -81,7 +81,7 @@ public class QACCBALRequestDemo {
         System.out.println(request.getServiceUrl());
         
         //÷¥––«Î«Û
-		QACCBALResponseV1 response = RequestUtil.Execute(BASE_URL, request.getParam());
+		QACCBALResponseV1 response = RequestUtil.ExecuteQACCBAL(BASE_URL, request.getParam());
 		
 		System.out.println("’À∫≈:" + response.getRd().getAccNo());
 		System.out.println("”‡∂Ó:" + response.getRd().getUsableBalance());

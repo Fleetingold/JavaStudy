@@ -10,6 +10,7 @@ import java.net.URLConnection;
 import com.mystudy.icbc.Base64Util;
 import com.mystudy.icbc.response.DigesterParser;
 import com.mystudy.icbc.response.QACCBALResponseV1;
+import com.mystudy.icbc.response.QHISDResponseV1;
 
 public class RequestUtil {
 	public static String SendPost(String url, String param) {
@@ -78,7 +79,7 @@ public class RequestUtil {
         bizContent.setfSeqno(sSeqno);
 	}
 
-	public static QACCBALResponseV1 Execute(String url, String param) {
+	public static QACCBALResponseV1 ExecuteQACCBAL(String url, String param) {
 		String repcontent = RequestUtil.SendPost(url, param);
 		try {
             repcontent = repcontent.substring(8);
@@ -93,5 +94,23 @@ public class RequestUtil {
 		
 		//xml解析
 		return DigesterParser.GetQACCBALResponseFromXML(repcontent);
+	}
+	
+	public static QHISDResponseV1 ExecuteQHISD(String url, String param) {
+		String repcontent = RequestUtil.SendPost(url, param);
+		try {
+            repcontent = repcontent.substring(8);
+            System.out.println("银企互联返回:\r\n"+repcontent);
+            byte[] decodeResult = Base64Util.getbyteFromBASE64(repcontent);
+            repcontent = new String(decodeResult);
+            //2020-10-22 隐藏解码后的内容!
+            //System.out.println("base64解码如下:\r\n" + repcontent);
+        } catch (Exception e) {
+        	e.printStackTrace();
+        	System.out.println("银企互联返回base64报错:" + e.toString());
+        }
+		
+		//xml解析
+		return DigesterParser.GetQHISDResponseFromXML(repcontent);
 	}
 }
