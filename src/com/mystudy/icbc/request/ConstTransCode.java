@@ -35,4 +35,9 @@ public class ConstTransCode {
 	 * 	行别行号下载
 	 */
 	public static final String QUERY_DIBPSBC = "DIBPSBC";
+	
+	/**
+	 * 	查询当日明细
+	 */
+	public static final String QUERY_QPD = "QPD";
 }
