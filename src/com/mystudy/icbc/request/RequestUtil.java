@@ -7,6 +7,10 @@ import java.io.PrintWriter;
 import java.net.URL;
 import java.net.URLConnection;
 
+import com.mystudy.icbc.Base64Util;
+import com.mystudy.icbc.response.DigesterParser;
+import com.mystudy.icbc.response.QACCBALResponseV1;
+
 public class RequestUtil {
 	public static String SendPost(String url, String param) {
 		PrintWriter out = null;
@@ -72,5 +76,22 @@ public class RequestUtil {
         bizContent.setTranTime(ConstRequest.getTranTime());
         //（7）ERP系统产生的指令包序列号，一个集团永远不能重复。客户可选择上送或由系统自动生成
         bizContent.setfSeqno(sSeqno);
+	}
+
+	public static QACCBALResponseV1 Execute(String url, String param) {
+		String repcontent = RequestUtil.SendPost(url, param);
+		try {
+            repcontent = repcontent.substring(8);
+            System.out.println("银企互联返回:\r\n"+repcontent);
+            byte[] decodeResult = Base64Util.getbyteFromBASE64(repcontent);
+            repcontent = new String(decodeResult);
+            System.out.println("base64解码如下:\r\n" + repcontent);
+        } catch (Exception e) {
+        	e.printStackTrace();
+        	System.out.println("银企互联返回base64报错:" + e.toString());
+        }
+		
+		//xml解析
+		return DigesterParser.GetQACCBALResponseFromXML(repcontent);
 	}
 }

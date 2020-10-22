@@ -1,13 +1,15 @@
 package com.mystudy.icbc.response;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 import org.apache.commons.digester3.Digester;
 import org.xml.sax.SAXException;
 
 public class DigesterParser {
 	
-	public static QACCBALResponseV1 Parse() {
+	public static QACCBALResponseV1 Parse(InputStream input) {
 		QACCBALResponseV1 response = null;
 		
 		//1、创建Digester对象实例
@@ -35,7 +37,7 @@ public class DigesterParser {
         
         //5、开始解析
         try {
-			response = digester.parse(DigesterParser.class.getClassLoader().getResourceAsStream("example.xml"));
+			response = digester.parse(input);
 	
 			System.out.println("TransCode:" + response.getTransCode());
 			System.out.println("CIS:" + response.getCis());
@@ -56,7 +58,7 @@ public class DigesterParser {
         return response;
 	}
 	
-	public static QACCBALResponseV1.QACCBALResponseV1Rd ParseRd() {
+	public static QACCBALResponseV1.QACCBALResponseV1Rd ParseRd(InputStream input) {
 		QACCBALResponseV1.QACCBALResponseV1Rd responseRd = null;
 		
 		//1、创建Digester对象实例
@@ -89,7 +91,7 @@ public class DigesterParser {
         
         //5、开始解析
         try {
-        	responseRd = digester.parse(DigesterParser.class.getClassLoader().getResourceAsStream("example.xml"));
+        	responseRd = digester.parse(input);
 			
 			//rd
         } catch (IOException e) {
@@ -103,12 +105,29 @@ public class DigesterParser {
         return responseRd;
 	}
 	
-	public static void main(String [] args) {
-		QACCBALResponseV1 response = Parse();
+	public static QACCBALResponseV1 GetQACCBALResponseFromInputStream(InputStream input1, InputStream input2) {
 		
-		QACCBALResponseV1.QACCBALResponseV1Rd responseRd = ParseRd();
+		QACCBALResponseV1 response = Parse(input1);
+		
+		QACCBALResponseV1.QACCBALResponseV1Rd responseRd = ParseRd(input2);
 		
 		response.setRd(responseRd);
+		
+		return response;
+	}
+	
+	public static QACCBALResponseV1 GetQACCBALResponseFromXML(String responseXml) {
+		InputStream input1 = new ByteArrayInputStream(responseXml.getBytes());
+		InputStream input2 = new ByteArrayInputStream(responseXml.getBytes());
+		
+		return GetQACCBALResponseFromInputStream(input1, input2);
+	}
+	
+	public static void main(String [] args) {
+		InputStream input1 = DigesterParser.class.getClassLoader().getResourceAsStream("example.xml");
+		InputStream input2 = DigesterParser.class.getClassLoader().getResourceAsStream("example.xml");
+		
+		QACCBALResponseV1 response = GetQACCBALResponseFromInputStream(input1, input2);
 		
 		System.out.println("TransCode:" + response.getTransCode());
 		System.out.println("CIS:" + response.getCis());
@@ -119,20 +138,20 @@ public class DigesterParser {
 		System.out.println("ReturnCode:" + response.getReturnCode());
 		System.out.println("ReturnMsg:" + response.getReturnMsg());
 		
-		System.out.println("iSeqno:" + responseRd.getiSeqno());
-		System.out.println("AccNo:" + responseRd.getAccNo());
-		System.out.println("CurrType:" + responseRd.getCurrType());
-		System.out.println("CashExf:" + responseRd.getCashExf());
-		System.out.println("AcctProperty:" + responseRd.getAcctProperty());
-		System.out.println("AccBalance:" + responseRd.getAccBalance());
-		System.out.println("Balance:" + responseRd.getBalance());
-		System.out.println("UsableBalance:" + responseRd.getUsableBalance());
-		System.out.println("FrzAmt:" + responseRd.getFrzAmt());
-		System.out.println("QueryTime:" + responseRd.getQueryTime());
-		System.out.println("iRetCode:" + responseRd.getiRetCode());
-		System.out.println("iRetMsg:" + responseRd.getiRetMsg());
-		System.out.println("RepReserved3:" + responseRd.getRepReserved3());
-		System.out.println("RepReserved4:" + responseRd.getRepReserved4());
+		System.out.println("iSeqno:" + response.getRd().getiSeqno());
+		System.out.println("AccNo:" + response.getRd().getAccNo());
+		System.out.println("CurrType:" + response.getRd().getCurrType());
+		System.out.println("CashExf:" + response.getRd().getCashExf());
+		System.out.println("AcctProperty:" + response.getRd().getAcctProperty());
+		System.out.println("AccBalance:" + response.getRd().getAccBalance());
+		System.out.println("Balance:" + response.getRd().getBalance());
+		System.out.println("UsableBalance:" + response.getRd().getUsableBalance());
+		System.out.println("FrzAmt:" + response.getRd().getFrzAmt());
+		System.out.println("QueryTime:" + response.getRd().getQueryTime());
+		System.out.println("iRetCode:" + response.getRd().getiRetCode());
+		System.out.println("iRetMsg:" + response.getRd().getiRetMsg());
+		System.out.println("RepReserved3:" + response.getRd().getRepReserved3());
+		System.out.println("RepReserved4:" + response.getRd().getRepReserved4());
 		
 		System.out.println("账号:" + response.getRd().getAccNo());
 		System.out.println("余额:" + response.getRd().getUsableBalance());

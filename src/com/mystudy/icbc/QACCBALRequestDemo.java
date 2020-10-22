@@ -7,6 +7,8 @@ import com.mystudy.icbc.request.QACCBALRequestV1;
 import com.mystudy.icbc.request.RequestParam;
 import com.mystudy.icbc.request.RequestParamUtil;
 import com.mystudy.icbc.request.RequestUtil;
+import com.mystudy.icbc.response.DigesterParser;
+import com.mystudy.icbc.response.QACCBALResponseV1;
 import com.mystudy.icbc.request.ConstRequest;
 import com.mystudy.icbc.request.ConstTransCode;
 
@@ -53,7 +55,7 @@ public class QACCBALRequestDemo {
         QACCBALRequestV1.QACCBALRequestRdV1 rd = new QACCBALRequestV1.QACCBALRequestRdV1();
         
         rd.setiSeqno("1");
-        rd.setAccNo(ConstRequest.ACCNO40348);
+        rd.setAccNo(ConstRequest.ACCNO2486);
         rd.setCurrType(ConstRequest.CURRTYPE);
         rd.setReqReserved3("");
         rd.setReqReserved4("");
@@ -78,17 +80,11 @@ public class QACCBALRequestDemo {
         request.setBizContent(bizContent);
         System.out.println(request.getServiceUrl());
         
-        String repcontent = RequestUtil.SendPost(BASE_URL, request.getParam());
-		try {
-            repcontent = repcontent.substring(8);
-            System.out.println("银企互联返回:\r\n"+repcontent);
-            byte[] decodeResult = Base64Util.getbyteFromBASE64(repcontent);
-            repcontent = new String(decodeResult);
-            System.out.println("base64解码如下:\r\n" + repcontent);
-        } catch (Exception e) {
-        	e.printStackTrace();
-        	System.out.println("银企互联返回base64报错:" + e.toString());
-        }
+        //执行请求
+		QACCBALResponseV1 response = RequestUtil.Execute(BASE_URL, request.getParam());
+		
+		System.out.println("账号:" + response.getRd().getAccNo());
+		System.out.println("余额:" + response.getRd().getUsableBalance());
 	}
 
 }
