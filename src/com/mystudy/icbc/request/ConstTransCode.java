@@ -30,4 +30,9 @@ public class ConstTransCode {
 	 * 	网点信息下载
 	 */
 	public static final String QUERY_NETINF = "NETINF";
+	
+	/**
+	 * 	行别行号下载
+	 */
+	public static final String QUERY_DIBPSBC = "DIBPSBC";
 }

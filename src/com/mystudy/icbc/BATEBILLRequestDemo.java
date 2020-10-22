@@ -29,15 +29,15 @@ public class BATEBILLRequestDemo {
         BATEBILLRequestV1.BATEBILLRequestRdV1 rd = new BATEBILLRequestV1.BATEBILLRequestRdV1();
         
         rd.setiSeqno("1");
-        //地区号 必输项?
-        rd.setAreaCode("");
+        //地区号 必输项 - 1311安徽阜阳
+        rd.setAreaCode("1311");
         //网点号 必输项?
-        rd.setNetCode("");
+        rd.setNetCode("0450");
         //交易日期 必输项
         rd.setTranDate(ConstRequest.getTranDate());
         rd.setAccNo(ConstRequest.ACCNO2486);
         //序号 必输项?
-        rd.setTranSerial("");
+        rd.setTranSerial("123456789");
         rd.setAcctSeq("");
         rd.setCurrType(ConstRequest.CURRTYPE);
         rds.add(rd);
