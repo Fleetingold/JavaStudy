@@ -430,6 +430,9 @@ public class BATEBILLResponseV1 extends ResponseV1 {
 			this.acctSeqName = acctSeqName;
 		}
 		public String getProdType() {
+			if(prodType.equals("")) {
+				return prodType;
+			}
 			return TurnProdType(Integer.parseInt(prodType));
 		}
 		public void setProdType(String prodType) {
