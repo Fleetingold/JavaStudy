@@ -36,12 +36,12 @@ public class BATEBILLRequestDemo {
         //地区号 必输项 - 1311安徽阜阳
         rd.setAreaCode("1311");
         //网点号 必输项
-        rd.setNetCode("0600");
+        rd.setNetCode("02623");
         //交易日期 必输项
-        rd.setTranDate("20201021");
-        rd.setAccNo(ConstRequest.ACCNO2486);
-        //序号 必输项
-        rd.setTranSerial("20295000001");
+        rd.setTranDate("20201023");
+        rd.setAccNo(ConstRequest.ACCNO40348);
+        //序号 必输项 
+        rd.setTranSerial("20297000095");
         rd.setAcctSeq("");
         rd.setCurrType(ConstRequest.CURRTYPE);
         rds.add(rd);
