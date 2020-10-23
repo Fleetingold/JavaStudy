@@ -392,4 +392,101 @@ public class DigesterParser {
         
         return response;
 	} 
+
+	public static QPDResponseV1 GetQPDResponseFromXML(String responseXml) {
+		QPDResponseV1 response = null;
+		
+		InputStream input = new ByteArrayInputStream(responseXml.getBytes());
+		
+		//1、创建Digester对象实例
+		Digester digester = new Digester();
+		
+		//2、配置属性值
+        digester.setValidating(false);
+        
+        //3、push对象到对象栈
+        //digester.push(new Foo());
+        
+        //4、设置匹配模式、规则
+        digester.addObjectCreate("CMS/eb", "com.mystudy.icbc.response.QPDResponseV1");
+        //CMS/eb/pub
+        digester.addCallMethod("CMS/eb/pub/TransCode", "setTransCode", 0);
+        digester.addCallMethod("CMS/eb/pub/CIS", "setCis", 0);
+        digester.addCallMethod("CMS/eb/pub/BankCode", "setBankCode", 0);
+        digester.addCallMethod("CMS/eb/pub/ID", "setID", 0);
+        digester.addCallMethod("CMS/eb/pub/TranDate", "setTranDate", 0);
+        digester.addCallMethod("CMS/eb/pub/TranTime", "setTranTime", 0);
+        digester.addCallMethod("CMS/eb/pub/fSeqno", "setfSeqno", 0);
+        digester.addCallMethod("CMS/eb/pub/RetCode", "setReturnCode", 0);
+        digester.addCallMethod("CMS/eb/pub/RetMsg", "setReturnMsg", 0);
+        
+        //CMS/eb/out
+        digester.addCallMethod("CMS/eb/out/AccNo", "setAccNo", 0);
+        digester.addCallMethod("CMS/eb/out/AccName", "setAccName", 0);
+        digester.addCallMethod("CMS/eb/out/CurrType", "setCurrType", 0);
+        digester.addCallMethod("CMS/eb/out/NextTag", "setNextTag", 0);
+        digester.addCallMethod("CMS/eb/out/TotalNum", "setTotalNum", 0);
+        digester.addCallMethod("CMS/eb/out/RepReserved1", "setRepReserved1", 0);
+        digester.addCallMethod("CMS/eb/out/RepReserved2", "setRepReserved2", 0);
+        digester.addCallMethod("CMS/eb/out/AcctSeq", "setAcctSeq", 0);
+        
+        //CMS/eb/out/rd
+        digester.addObjectCreate("CMS/eb/out/rd", "com.mystudy.icbc.response.QPDResponseV1$QPDResponseV1Rd");
+        digester.addCallMethod("CMS/eb/out/rd/Drcrf", "setDrcrf", 0);
+        digester.addCallMethod("CMS/eb/out/rd/VouhNo", "setVouhNo", 0);
+        digester.addCallMethod("CMS/eb/out/rd/Amount", "setAmount", 0);
+        digester.addCallMethod("CMS/eb/out/rd/RecipBkNo", "setRecipBkNo", 0);
+        digester.addCallMethod("CMS/eb/out/rd/RecipAccNo", "setRecipAccNo", 0);
+        digester.addCallMethod("CMS/eb/out/rd/RecipName", "setRecipName", 0);
+        digester.addCallMethod("CMS/eb/out/rd/Summary", "setSummary", 0);
+        digester.addCallMethod("CMS/eb/out/rd/UseCN", "setUseCN", 0);
+        digester.addCallMethod("CMS/eb/out/rd/PostScript", "setPostScript", 0);
+        digester.addCallMethod("CMS/eb/out/rd/Ref", "setRef", 0);
+        digester.addCallMethod("CMS/eb/out/rd/BusCode", "setBusCode", 0);
+        digester.addCallMethod("CMS/eb/out/rd/Oref", "setOref", 0);
+        digester.addCallMethod("CMS/eb/out/rd/EnSummary", "setEnSummary", 0);
+        digester.addCallMethod("CMS/eb/out/rd/BusType", "setBusType", 0);
+        digester.addCallMethod("CMS/eb/out/rd/CvouhType", "setCVouhType", 0);
+        digester.addCallMethod("CMS/eb/out/rd/AddInfo", "setAddInfo", 0);
+        digester.addCallMethod("CMS/eb/out/rd/TimeStamp", "setTimeStamp", 0);
+        digester.addCallMethod("CMS/eb/out/rd/RepReserved3", "setRepReserved3", 0);
+        digester.addCallMethod("CMS/eb/out/rd/RepReserved4", "setRepReserved4", 0);
+        digester.addCallMethod("CMS/eb/out/rd/UpDtranf", "setUpDtranf", 0);
+        digester.addCallMethod("CMS/eb/out/rd/ValueDate", "setValueDate", 0);
+        digester.addCallMethod("CMS/eb/out/rd/TrxCode", "setTrxCode", 0);
+        digester.addCallMethod("CMS/eb/out/rd/SequenceNo", "setSequenceNo", 0);
+        digester.addCallMethod("CMS/eb/out/rd/Cashf", "setCashf", 0);
+        digester.addCallMethod("CMS/eb/out/rd/CASHEXF", "setCASHEXF", 0);
+        digester.addCallMethod("CMS/eb/out/rd/Remark", "setRemark", 0);
+        digester.addCallMethod("CMS/eb/out/rd/TradeDate", "setTradeDate", 0);
+        digester.addCallMethod("CMS/eb/out/rd/TradeTime", "setTradeTime", 0);
+        digester.addCallMethod("CMS/eb/out/rd/TradeLocation", "setTradeLocation", 0);
+        digester.addCallMethod("CMS/eb/out/rd/TradeFee", "setTradeFee", 0);
+        digester.addCallMethod("CMS/eb/out/rd/ExRate", "setExRate", 0);
+        digester.addCallMethod("CMS/eb/out/rd/ForCurrType", "setForCurrType", 0);
+        digester.addCallMethod("CMS/eb/out/rd/EnAbstrat", "setEnAbstrat", 0);
+        digester.addCallMethod("CMS/eb/out/rd/RecBankName", "setRecBankName", 0);
+        digester.addCallMethod("CMS/eb/out/rd/OpenBankNo", "setOpenBankNo", 0);
+        digester.addCallMethod("CMS/eb/out/rd/OpenBankBIC", "setOpenBankBIC", 0);
+        digester.addCallMethod("CMS/eb/out/rd/OpenBankName", "setOpenBankName", 0);
+        digester.addCallMethod("CMS/eb/out/rd/SubAcctSeq", "setSubAcctSeq", 0);
+        digester.addCallMethod("CMS/eb/out/rd/THCurrency", "setTHCurrency", 0);
+        digester.addCallMethod("CMS/eb/out/rd/ReceiptInfo", "setReceiptInfo", 0);
+        digester.addCallMethod("CMS/eb/out/rd/OnlySequence", "setOnlySequence", 0);
+        
+        digester.addSetNext("CMS/eb/out/rd", "addRd");
+        
+        //5、开始解析
+        try {
+			response = digester.parse(input);
+        } catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SAXException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
+        return response;
+	}
 }

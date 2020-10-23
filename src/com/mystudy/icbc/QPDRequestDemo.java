@@ -7,6 +7,7 @@ import com.mystudy.icbc.request.QPDRequestV1;
 import com.mystudy.icbc.request.RequestParam;
 import com.mystudy.icbc.request.RequestParamUtil;
 import com.mystudy.icbc.request.RequestUtil;
+import com.mystudy.icbc.response.QPDResponseV1;
 
 public class QPDRequestDemo {
 
@@ -32,7 +33,7 @@ public class QPDRequestDemo {
 		rd.setBeginTime("");
 		//HHmmss 预留，目前无意义
 		rd.setEndTime("");
-		rd.setNextTag("");
+		rd.setNextTag("2020-10-23-09.37.06.362410");
 		rd.setReqReserved1("");
 		rd.setReqReserved2("");
 		rd.setCurrType("");
@@ -54,17 +55,46 @@ public class QPDRequestDemo {
 		request.setBizContent(bizContent);
         System.out.println(request.getServiceUrl());
         
-        String repcontent = RequestUtil.SendPost(ConstRequest.BASE_URL, request.getParam());
-		try {
-            repcontent = repcontent.substring(8);
-            System.out.println("银企互联返回:\r\n"+repcontent);
-            byte[] decodeResult = Base64Util.getbyteFromBASE64(repcontent);
-            repcontent = new String(decodeResult);
-            System.out.println("base64解码如下:\r\n" + repcontent);
-        } catch (Exception e) {
-        	e.printStackTrace();
-        	System.out.println("银企互联返回base64报错:" + e.toString());
-        }
+        //执行请求
+        QPDResponseV1 response = RequestUtil.ExecuteQPD(ConstRequest.BASE_URL, request.getParam());
+        
+        System.out.println("TransCode:" + response.getTransCode());
+		System.out.println("CIS:" + response.getCis());
+		System.out.println("BankCode:" + response.getBankCode());
+		System.out.println("ID:" + response.getID());
+		System.out.println("TranDate:" + response.getTranDate());
+		System.out.println("TranTime:" + response.getTranTime());
+		System.out.println("fSeqno:" + response.getfSeqno());
+		System.out.println("ReturnCode:" + response.getReturnCode());
+		System.out.println("ReturnMsg:" + response.getReturnMsg());
+		System.out.println("AccNo:" + response.getAccNo());
+		System.out.println("NextTag:" + response.getNextTag());
+		System.out.println("TotalNum:" + response.getTotalNum());
+		
+		for(QPDResponseV1.QPDResponseV1Rd resRd : response.getRds()) {
+			System.out.println("------------------------------------");
+			//Drcrf 借贷标志	数据字典：1-借；2-贷；
+			System.out.println("Drcrf(借贷标志):" + resRd.getDrcrf());
+			//Amount  发生额
+			System.out.println("Amount(发生额):" + resRd.getAmount());
+			System.out.println("RepReserved3(电子回单唯一标识):" + resRd.getRepReserved3());
+			System.out.println("SequenceNo(主机交易流水号):" + resRd.getSequenceNo());
+			//OnlySequence 银行交易流水号
+			System.out.println("OnlySequence(银行交易流水号):" + resRd.getOnlySequence());
+			//RecipBkNo 对方行号
+			System.out.println("RecipBkNo(对方行号):" + resRd.getRecipBkNo());
+			System.out.println("RecipName(对方户名):" + resRd.getRecipName());
+			System.out.println("RecipAccNo(对方账号):" + resRd.getRecipAccNo());
+			//ReceiptInfo 对方信息
+			System.out.println("ReceiptInfo(对方信息):" + resRd.getReceiptInfo());
+			
+			System.out.println("UseCN(用途):" + resRd.getUseCN());
+			System.out.println("PostScript(附言):" + resRd.getPostScript());
+			System.out.println("Summary(摘要):" + resRd.getSummary());
+			//EnSummary 英文摘要
+			System.out.println("EnSummary(英文摘要):" + resRd.getEnSummary());
+			System.out.println("TimeStamp(时间戳):" + resRd.getTimeStamp());
+		}
 	}
 
 }

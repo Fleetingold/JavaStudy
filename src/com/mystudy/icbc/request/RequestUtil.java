@@ -12,6 +12,7 @@ import com.mystudy.icbc.response.BATEBILLResponseV1;
 import com.mystudy.icbc.response.DigesterParser;
 import com.mystudy.icbc.response.QACCBALResponseV1;
 import com.mystudy.icbc.response.QHISDResponseV1;
+import com.mystudy.icbc.response.QPDResponseV1;
 
 public class RequestUtil {
 	public static String SendPost(String url, String param) {
@@ -137,5 +138,23 @@ public class RequestUtil {
 		
 		//xml解析
 		return DigesterParser.GetBATEBILLResponseFromXML(repcontent);
+	}
+	
+	public static QPDResponseV1 ExecuteQPD(String url, String param) {
+		String repcontent = RequestUtil.SendPost(url, param);
+		try {
+            repcontent = repcontent.substring(8);
+            System.out.println("银企互联返回:\r\n"+repcontent);
+            byte[] decodeResult = Base64Util.getbyteFromBASE64(repcontent);
+            repcontent = new String(decodeResult);
+            //2020-10-22 隐藏解码后的内容!
+            //System.out.println("base64解码如下:\r\n" + repcontent);
+        } catch (Exception e) {
+        	e.printStackTrace();
+        	System.out.println("银企互联返回base64报错:" + e.toString());
+        }
+		
+		//xml解析
+		return DigesterParser.GetQPDResponseFromXML(repcontent);
 	}
 }
