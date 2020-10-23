@@ -22,7 +22,7 @@ public class QEBILLRequestDemo {
 		RequestUtil.AssignToRequestBiz(bizContent, Seqno, ConstTransCode.QUERY_QEBILL);
 		
 		//待查指令包序列号 BATEBILL(电子回单批量查询的fSeqno)
-		bizContent.setQryfSeqno("BATEBILL20201023172815480");
+		bizContent.setQryfSeqno("BATEBILL20201023213941012");
 		//待查平台交易流水号?
 		bizContent.setQrySerialNo("");
 		

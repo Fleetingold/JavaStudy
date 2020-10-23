@@ -39,9 +39,9 @@ public class BATEBILLRequestDemo {
         rd.setNetCode("02623");
         //交易日期 必输项
         rd.setTranDate("20201023");
-        rd.setAccNo(ConstRequest.ACCNO40348);
-        //序号 必输项 
-        rd.setTranSerial("20297000095");
+        rd.setAccNo(ConstRequest.ACCNO2528);
+        //序号 必输项 1311|02623|20297|000851
+        rd.setTranSerial("20297000851");
         rd.setAcctSeq("");
         rd.setCurrType(ConstRequest.CURRTYPE);
         rds.add(rd);

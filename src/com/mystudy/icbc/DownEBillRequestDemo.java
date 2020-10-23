@@ -28,13 +28,13 @@ public class DownEBillRequestDemo {
         //地区号 必输项 - 1311安徽阜阳
         bizContent.setAreaCode("1311");
         //网点号 必输项
-        bizContent.setNetCode("02623");
+        bizContent.setNetCode("00600");
         //柜员号
-        bizContent.setTellerNo("20295");
+        bizContent.setTellerNo("20297");
         //交易日期 必输项
         bizContent.setWorkDate("20201023");
-        //序号 必输项 1311|00600|20297|000001
-        bizContent.setTranSerialNo("000001");
+        //序号 必输项 1311|00600|20297|000734
+        bizContent.setTranSerialNo("000734");
         bizContent.setAcctNo(ConstRequest.ACCNO2528);
         bizContent.setCurrencyType(ConstRequest.CURRTYPE);
         //需要签名
