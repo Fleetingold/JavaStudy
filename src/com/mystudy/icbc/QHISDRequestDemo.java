@@ -61,6 +61,7 @@ public class QHISDRequestDemo {
 		System.out.println("BankCode:" + response.getBankCode());
 		System.out.println("ID:" + response.getID());
 		System.out.println("TranDate:" + response.getTranDate());
+		System.out.println("TranTime:" + response.getTranTime());
 		System.out.println("fSeqno:" + response.getfSeqno());
 		System.out.println("ReturnCode:" + response.getReturnCode());
 		System.out.println("ReturnMsg:" + response.getReturnMsg());

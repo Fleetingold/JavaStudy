@@ -8,6 +8,7 @@ import java.net.URL;
 import java.net.URLConnection;
 
 import com.mystudy.icbc.Base64Util;
+import com.mystudy.icbc.response.BATEBILLResponseV1;
 import com.mystudy.icbc.response.DigesterParser;
 import com.mystudy.icbc.response.QACCBALResponseV1;
 import com.mystudy.icbc.response.QHISDResponseV1;
@@ -112,5 +113,29 @@ public class RequestUtil {
 		
 		//xml解析
 		return DigesterParser.GetQHISDResponseFromXML(repcontent);
+	}
+	
+	public static BATEBILLResponseV1 ExecuteBATEBILL(String url, String param) {
+		String repcontent = RequestUtil.SendPost(url, param);
+		try {
+            repcontent = repcontent.substring(8);
+            System.out.println("银企互联返回:\r\n"+repcontent);
+            byte[] decodeResult = Base64Util.getbyteFromBASE64(repcontent);
+            repcontent = new String(decodeResult);
+            //2020-10-22 隐藏解码后的内容!
+            //System.out.println("base64解码如下:\r\n" + repcontent);
+        } catch (Exception e) {
+        	e.printStackTrace();
+        	System.out.println("银企互联返回base64报错:" + e.toString());
+        }
+		
+		int beginSign = repcontent.indexOf("<?xml");
+		int endSign = repcontent.indexOf("</CMS>") + 6;
+		repcontent = repcontent.substring(beginSign, endSign);
+		
+		System.out.println("base64解码如下:\r\n" + repcontent);
+		
+		//xml解析
+		return DigesterParser.GetBATEBILLResponseFromXML(repcontent);
 	}
 }

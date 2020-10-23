@@ -3,8 +3,6 @@ package com.mystudy.icbc;
 import com.mystudy.icbc.request.ConstRequest;
 import com.mystudy.icbc.request.ConstTransCode;
 
-import java.util.ArrayList;
-
 import com.mystudy.icbc.request.DownEBillRequestBizV1;
 import com.mystudy.icbc.request.DownEBillRequestV1;
 import com.mystudy.icbc.request.RequestParam;
