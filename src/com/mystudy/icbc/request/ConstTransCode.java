@@ -40,4 +40,9 @@ public class ConstTransCode {
 	 * 	查询当日明细
 	 */
 	public static final String QUERY_QPD = "QPD";
+	
+	/**
+	 * 	电子回单下载
+	 */
+	public static final String QUERY_DownEBill = "DownEBill";
 }
