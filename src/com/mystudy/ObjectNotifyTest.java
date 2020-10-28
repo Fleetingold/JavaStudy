@@ -78,17 +78,17 @@ public class ObjectNotifyTest {
 			Thread threadA1 = new Thread(runA, "Google");
 			threadA1.start();
 			
-			Thread.sleep(500);
+			Thread.sleep(5000);
 			
 			Thread threadA2 = new Thread(runA, "Runoob");
 			threadA2.start();
 			
-			Thread.sleep(500);
+			Thread.sleep(5000);
 			
 			Thread threadB = new Thread(runB, "Taobao");
 			threadB.start();
 			
-			Thread.sleep(1000);
+			Thread.sleep(10000);
 			
 			threadA1.interrupt();
 			threadA2.interrupt();

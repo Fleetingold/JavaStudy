@@ -28,5 +28,5 @@ public class GenericStudy01 {
 	
 	public static void getUperNumber(List<? extends Number> data) {
         System.out.println("data :" + data.get(0));
-     }
+    }
 }
