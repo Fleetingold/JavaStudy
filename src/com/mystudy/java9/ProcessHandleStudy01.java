@@ -6,13 +6,11 @@ import java.util.stream.Collectors;
 import java.io.IOException;
 
 public class ProcessHandleStudy01 {
-
 	public static void main(String[] args) throws IOException {
-		// TODO Auto-generated method stub
 		ProcessBuilder pb = new ProcessBuilder("notepad.exe");
+		pb.start();
 		String np = "Not Present";
 		Process9 p = new  Process9();
-				//pb.start();
 		ProcessHandle.Info info = p.info();
 		System.out.printf("Process ID : %s%n", p.pid());
 		System.out.printf("Command name : %s%n", info.command().orElse(np));
@@ -28,5 +26,4 @@ public class ProcessHandleStudy01 {
 	    
 	    System.out.printf("User : %s%n", info.user().orElse(np));
 	}
-
 }
