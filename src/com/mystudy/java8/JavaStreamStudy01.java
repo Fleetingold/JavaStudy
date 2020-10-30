@@ -173,7 +173,7 @@ public class JavaStreamStudy01 {
 		return min;
 	}
 
-	private static int getSum(List numbers) {
+	private static int getSum(List<Integer> numbers) {
 		int sum = (int) (numbers.get(0));
 
 		for (int i = 1; i < numbers.size(); i++) {
