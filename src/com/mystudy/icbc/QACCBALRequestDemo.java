@@ -7,7 +7,6 @@ import com.mystudy.icbc.request.QACCBALRequestV1;
 import com.mystudy.icbc.request.RequestParam;
 import com.mystudy.icbc.request.RequestParamUtil;
 import com.mystudy.icbc.request.RequestUtil;
-import com.mystudy.icbc.response.DigesterParser;
 import com.mystudy.icbc.response.QACCBALResponseV1;
 import com.mystudy.icbc.request.ConstRequest;
 import com.mystudy.icbc.request.ConstTransCode;
