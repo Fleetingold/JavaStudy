@@ -1,4 +1,4 @@
-package com.mystudy.socket;
+package com.mystudy.net.socket;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
