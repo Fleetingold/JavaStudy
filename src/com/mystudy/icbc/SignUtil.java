@@ -54,13 +54,18 @@ public class SignUtil {
 			"			</in>\r\n" + 
 			"		</eb>\r\n" + 
 			"</CMS>";
-	       
+	    
+	   xmlContent = "<?xml version=\"1.0\" encoding=\"GBK\"?><CMS><eb><pub><TransCode>PAYENT</TransCode><CIS>71390256-5AAAAA</CIS><BankCode>102</BankCode><ID>hyhl.y.1311</ID><TranDate>20201107</TranDate><TranTime>123657868</TranTime><fSeqno>PAYENT20201107123657867</fSeqno></pub><in><OnlBatF></OnlBatF><SettleMode>0</SettleMode><TotalNum>1</TotalNum><TotalAmt>1</TotalAmt><SignTime>20201107123657869</SignTime><ReqReserved1></ReqReserved1><ReqReserved2></ReqReserved2><rd><iSeqno>1</iSeqno><ReimburseNo></ReimburseNo><ReimburseNum></ReimburseNum><StartDate></StartDate><StartTime></StartTime><PayType>2</PayType><PayAccNo>1311045029200040348</PayAccNo><PayAccNameCN></PayAccNameCN><PayAccNameEN></PayAccNameEN><RecAccNo>1311045029200002528</RecAccNo><RecAccNameCN>安</RecAccNameCN><RecAccNameEN></RecAccNameEN><SysIOFlg>1</SysIOFlg><IsSameCity></IsSameCity><Prop></Prop><RecICBCCode></RecICBCCode><RecCityName></RecCityName><RecBankNo></RecBankNo><RecBankName></RecBankName><CurrType>001</CurrType><PayAmt>1</PayAmt><UseCode></UseCode><UseCN></UseCN><EnSummary></EnSummary><PostScript></PostScript><Summary></Summary><Ref></Ref><Oref></Oref><ERPSqn></ERPSqn><BusCode></BusCode><ERPcheckno></ERPcheckno><CrvouhType></CrvouhType><CrvouhName></CrvouhName><CrvouhNo></CrvouhNo><BankType></BankType><FileNames></FileNames><Indexs></Indexs><PaySubNo></PaySubNo><RecSubNo></RecSubNo></rd></in></eb></CMS>";
+		
        System.out.println("xml报文明文组包:\r\n" + xmlContent);
        
        String url = "http://127.0.0.1:449";
        
        String signContent = Sign(url, xmlContent);
        System.out.println("签名:" + signContent);
+       
+       signContent = VerifySign(url, signContent);
+       System.out.println("验签:" + signContent);
 	}
 
 	public static String Sign(String url, String xmlContent) {
@@ -125,6 +130,58 @@ public class SignUtil {
 		return signContent;
 	}
 
+	public static String VerifySign(String url, String xmlContent) {
+		String signContent = "";
+		
+		PrintWriter out = null;
+		BufferedReader in = null;
+		try {
+			URL realUrl = new URL(url);
+			// 打开和URL之间的连接
+			URLConnection conn = realUrl.openConnection();
+
+			// 设置通用的请求属性
+			conn.setRequestProperty("Content-Type", "INFOSEC_VERIFY_SIGN/1.0");
+			conn.setRequestProperty("Content-Length", Integer.toString(xmlContent.length()));
+			// 发送POST请求必须设置如下两行
+			conn.setDoOutput(true);
+			conn.setDoInput(true);
+			// 获取URLConnection对象对应的输出流
+			out = new PrintWriter(conn.getOutputStream());
+			// 发送请求参数
+			out.print(xmlContent);
+			// flush输出流的缓冲
+			out.flush();
+			// 定义BufferedReader输入流来读取URL的响应
+			in = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
+			String line;
+			while ((line = in.readLine()) != null) {
+				signContent += line;
+			}
+		} catch (Exception e) {
+			System.out.println("发送 POST 请求出现异常！" + e);
+			e.printStackTrace();
+		}
+		// 使用finally块来关闭输出流、输入流
+		finally {
+			try {
+				if (out != null) {
+					out.close();
+				}
+				if (in != null) {
+					in.close();
+				}
+			} catch (IOException ex) {
+				ex.printStackTrace();
+			}
+		}
+
+		System.out.println("加密前:" + xmlContent);
+		System.out.println("加密后:" + signContent);
+		
+		return signContent;
+	}
+	
 	/**
 	 * 	这个不好使: RetrunCode 500
 	 * 
