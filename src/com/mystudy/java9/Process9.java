@@ -43,14 +43,14 @@ public class Process9 extends Process {
 		return 0;
 	}
 
-	public Info info() {
-		// TODO Auto-generated method stub
-		return ProcessHandle.info();
-	}
+//	public Info info() {
+//		// TODO Auto-generated method stub
+//		return ProcessHandle.info();
+//	}
 
-	public int pid() {
-		// TODO Auto-generated method stub
-		return 5800;
-	}
+//	public int pid() {
+//		// TODO Auto-generated method stub
+//		return 5800;
+//	}
 
 }

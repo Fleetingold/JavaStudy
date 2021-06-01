@@ -655,13 +655,14 @@ public class ICBCDemo {
 		public static String getstrFromBASE64(String s) {
 			if (s == null)
 				return null;
-			sun.misc.BASE64Decoder decoder = new sun.misc.BASE64Decoder();
+//			sun.misc.BASE64Decoder decoder = new sun.misc.BASE64Decoder();
 			try {
-				byte[] b = decoder.decodeBuffer(s);
-				return new String(b);
+//				byte[] b = decoder.decodeBuffer(s);
+//				return new String(b);
 			} catch (Exception e) {
 				return null;
 			}
+			return s;
 		}
 	/**
 	 * base64½âÂë
@@ -671,12 +672,13 @@ public class ICBCDemo {
 		public static byte[] getbyteFromBASE64(String s) {
 			if (s == null)
 				return null;
-			sun.misc.BASE64Decoder decoder = new sun.misc.BASE64Decoder();
+//			sun.misc.BASE64Decoder decoder = new sun.misc.BASE64Decoder();
 			try {
-				return decoder.decodeBuffer(s);
+//				return decoder.decodeBuffer(s);
 			} catch (Exception e) {
 				return null;
 			}
+			return s.getBytes();
 		}
 	/**
 	 * base64±àÂë
@@ -686,11 +688,12 @@ public class ICBCDemo {
 		public static String getrevFromBASE64(byte[] s) {
 			if (s == null)
 				return null;
-			sun.misc.BASE64Encoder encoder = new sun.misc.BASE64Encoder();
+//			sun.misc.BASE64Encoder encoder = new sun.misc.BASE64Encoder();
 			try {
-				return encoder.encode(s);
+//				return encoder.encode(s);
 			} catch (Exception e) {
 				return null;
 			}
+			return new String(s);
 		}
 }
