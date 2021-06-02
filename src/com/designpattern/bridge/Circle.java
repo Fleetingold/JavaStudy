@@ -1,6 +1,7 @@
 package com.designpattern.bridge;
 
 public class Circle extends Shape {
+	private String color;
 	private int x, y, radius;
 
 	public Circle(int x, int y, int radius, DrawAPI drawAPI) {
