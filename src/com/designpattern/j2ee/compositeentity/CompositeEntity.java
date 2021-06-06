@@ -1,4 +1,4 @@
-package com.designpattern.j2ee;
+package com.designpattern.j2ee.compositeentity;
 
 public class CompositeEntity {
 	private CoarseGrainedObject cgo = new CoarseGrainedObject();
