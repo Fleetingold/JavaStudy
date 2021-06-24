@@ -1,0 +1,6 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - init: java -version
+    command: 'echo "TODO: Replace with command to start project"'
